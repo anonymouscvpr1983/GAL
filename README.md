@@ -1,18 +1,18 @@
 # Towards Optimal Structured CNN Pruning via Generative Adversarial Learning(GAL)
 
-The PyTorch code for GAL.
+The PyTorch code is for rebuttal on GAL.
 
 
 
 ## Running Code
 
-In this code, you can run our model on CIFAR10 dataset. The code has been tested with Python 3.6, Pytorch 0.4.0 and CUDA 9.0 on Ubuntu 16.04.
+In this code, you can run our model on CIFAR10 dataset. The code has been tested by Python 3.6, [Pytorch 0.4.1](https://pytorch.org/) and CUDA 9.0 on Ubuntu 16.04.
 
 
 
 ### Run examples
 
-Training and fine-tuning scripts are provided in the `run.sh`. Please uncomment the appropriate line in `run.sh` that you want to execute.
+The scripts of training and fine-tuning are provided  in the `run.sh`, please kindly uncomment the appropriate line in `run.sh` to execute the training and fine-tuning.
 
 ```shell
 sh run.sh
@@ -20,7 +20,7 @@ sh run.sh
 
 
 
-**For training**, change the `teacher_dir` argument to the place where the pretrained model located. 
+**For training**, change the `teacher_dir` to the place where the pretrained model is located. 
 
 ```shell
 # run.sh
@@ -31,20 +31,20 @@ The pruned model will be named `pruned.pt`
 
 
 
-**For fine-tuning**, change the `refine` argument to the place where the pruned model to be fine tuned. 
+**For fine-tuning**, change the `refine` to the place where the pruned model is allowed to be fine-tuned. 
 
 ```shell
 # run.sh
 python main.py --refine [pruned model dir] 
 ```
 
-You can set `--pruned` to reuse the `pruned.pt`. If you want to initiate weights randomly, please set  `--random`.
+You can set `--pruned` to reuse the `pruned.pt`. If you want to initiate weights randomly, just set  `--random`.
 
 
 
 ## Models
 
-We provied our pretrained, pruned and fine-tuned models below, download and set `--test_only` to test the models.
+We also provide our pre-trained, pruned and fine-tuned models below, download and set `--test_only` to test the models. Enjoy your training and testing!
 
 
 
