@@ -35,7 +35,7 @@ The pruned model will be named `pruned.pt`
 
 ```shell
 # run.sh
-python main.py --refine [pruned model dir] 
+python finetune.py --refine [pruned model dir] 
 ```
 
 You can set `--pruned` to reuse the `pruned.pt`. If you want to initiate weights randomly, just set  `--random`.
