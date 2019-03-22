@@ -6,6 +6,8 @@ PyTorch implementation for GAL.
 
 ![GAL-framework](https://user-images.githubusercontent.com/47294246/54805147-021eb500-4cb1-11e9-85ac-861ecbada3e1.png)
 
+An illustration of GAL. Blue solid block, branch and channel elements are active, while red dotted elements are inactive and can be pruned since their corresponding scaling factors in the soft mask are 0.
+
 
 
 ## Abstract
