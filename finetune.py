@@ -51,6 +51,11 @@ def main():
     if args.test_only:
         return 
 
+    if args.keep_grad:
+        for name, weight in model.named_parameters():
+            if 'mask' in name:
+                weight.requires_grad = False
+
     optimizer = optim.SGD(model.parameters(), lr=args.lr, momentum=args.momentum,weight_decay=args.weight_decay)
     scheduler = StepLR(optimizer, step_size=args.lr_decay_step, gamma=0.1)
 

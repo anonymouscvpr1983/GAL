@@ -1,12 +1,36 @@
 # Towards Optimal Structured CNN Pruning via Generative Adversarial Learning(GAL)
 
-The PyTorch code is for rebuttal on GAL.
+PyTorch implementation for GAL.
+
+
+
+![GAL-framework](https://user-images.githubusercontent.com/47294246/54805147-021eb500-4cb1-11e9-85ac-861ecbada3e1.png)
+
+
+
+## Abstract
+
+Structured pruning of filters or neurons has received increased focus for compressing convolutional neural networks. Most existing methods rely on multi-stage optimizations in a layer-wise manner for iteratively pruning and retraining which may not be optimal and may be computation intensive. Besides, these methods are designed for pruning a specific structure, such as filter or block structures  without jointly pruning heterogeneous structures. In this paper, we propose an effective structured pruning approach that jointly prunes filters as well as other structures in an end-to-end manner. To accomplish this, we first introduce a soft mask to scale the output of these structures by defining a new objective function with sparsity regularization to align the output of baseline and network with this mask. We then effectively solve the optimization problem by generative adversarial learning (GAL), which learns a sparse soft mask in a label-free and an end-to-end manner. By forcing more scaling factors in the soft mask to zero, the fast iterative shrinkage-thresholding algorithm (FISTA) can be leveraged to fast and reliably remove the corresponding structures. Extensive experiments demonstrate the effectiveness of GAL on different datasets, including MNIST, CIFAR-10 and ImageNet ILSVRC 2012. For example, on ImageNet ILSVRC 2012, the pruned ResNet-50 achieves 10.88% Top-5 error and results in a factor of $3.7\times​$ speedup. This significantly outperforms state-of-the-art methods.
+
+
+
+## Citation
+If you find GAL useful in your research, please consider citing:
+
+```
+@inproceedings{lin2019towards,
+  title     = {Towards Optimal Structured CNN Pruning via Generative Adversarial Learning},
+  author    = {Lin, Shaohui and Ji, Rongrong and Yan, Chenqian and Zhang, Baochang and Cao, Liujuan and Ye, Qixiang and Huang, Feiyue and Doermann, David},
+  booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2019}
+}
+```
 
 
 
 ## Running Code
 
-In this code, you can run our model on CIFAR10 dataset. The code has been tested by Python 3.6, [Pytorch 0.4.1](https://pytorch.org/) and CUDA 9.0 on Ubuntu 16.04.
+In this code, you can run our Resnet-56 model on CIFAR10 dataset. The code has been tested by Python 3.6, [Pytorch 0.4.1](https://pytorch.org/) and CUDA 9.0 on Ubuntu 16.04.
 
 
 
@@ -42,21 +66,11 @@ You can set `--pruned` to reuse the `pruned.pt`. If you want to initiate weights
 
 
 
-## Models
-
-We also provide our pre-trained, pruned and fine-tuned models below, download and set `--test_only` to test the models. Enjoy your training and testing!
-
-
-
-### Resnet56
+We also provide our baseline model below. Enjoy your training and testing!
 
 | Model                                                        | FLOPs.  | #Param. | Top-1 Err. |
 | ------------------------------------------------------------ | ------- | ------- | ---------- |
 | [Baseline](https://drive.google.com/open?id=1XHNxyFklGjvzNpTjzlkjpKc61-LLjt5T) | 125.49M | 0.85M   | 6.74%      |
-| [GAL-0.6](https://drive.google.com/open?id=1Fq4miBYqCLUNCoxJp9VoWaBAbR1rxVMm) | 78.30M  | 0.75M   | 7.02%      |
-| [GAL-0.8](https://drive.google.com/open?id=1gQ5vt5KoEPFLF-u2lGcT2bk4PoLcbx_8) | 49.99M  | 0.29M   | 9.64%      |
-| [FT-GAL-0.6](https://drive.google.com/open?id=1fhYezcYTCbRhN8e3r_0wY_6CZOud736R) | 78.30M  | 0.75M   | 6.62%      |
-| [FT-GAL-0.8](https://drive.google.com/open?id=1-1-9z6zAfMogAx4HjQ0Gxt67Z9RpkQA4) | 49.99M  | 0.29M   | 8.42%      |
 
 
 

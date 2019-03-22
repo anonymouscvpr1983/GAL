@@ -8,7 +8,7 @@ parser.add_argument(
     '--gpus',
     type=int,
     nargs='+',
-    default=0,
+    default=[0],
     help='Select gpu to use')
 parser.add_argument(
     '--dataset',
@@ -121,6 +121,10 @@ parser.add_argument(
     type=float,
     default=0.0,
     help='Thred of mask to be pruned')
+parser.add_argument(
+    '--keep_grad',
+    action='store_true',
+    help='Keep gradients of mask for finetune')
 
 ## Status
 parser.add_argument(
