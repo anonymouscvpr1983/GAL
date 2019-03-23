@@ -60,7 +60,7 @@ def prune_resnet(args, state_dict):
     print(f'Saving pruned model to {save_dir}...')
     
     save_state_dict = {}
-    save_state_dict['state_dict_s'] = state_dict
+    save_state_dict['state_dict_s'] = new_state_dict
     save_state_dict['mask'] = mask_block
     torch.save(save_state_dict, save_dir)
 

@@ -18,7 +18,6 @@ class FISTA(Optimizer):
                     continue
 
                 grad = p.grad.data
-                # print(grad)
                 state = self.state[p]
 
                 if 'alpha' not in state or decay:

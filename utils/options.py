@@ -18,17 +18,17 @@ parser.add_argument(
 parser.add_argument(
     '--data_dir',
     type=str,
-    default='/data/',
+    default='data/',
     help='The directory where the input data is stored.')
 parser.add_argument(
     '--job_dir',
     type=str,
-    default='/experiments/',
+    default='experiments/',
     help='The directory where the summaries will be stored.')
 parser.add_argument(
     '--teacher_dir',
     type=str,
-    default='/pretrained/',
+    default='pretrained/',
     help='The directory where the teacher model saved.')
 parser.add_argument(
     '--reset',
@@ -89,7 +89,7 @@ parser.add_argument(
 parser.add_argument(
     '--mask_step',
     type=int,
-    default=100,
+    default=200,
     help='The frequency of mask to update'
 )
 parser.add_argument(
@@ -100,7 +100,7 @@ parser.add_argument(
 parser.add_argument(
     '--miu', 
     type=float,
-    default=1e-3,
+    default=1,
     help='The miu of data loss.')
 parser.add_argument(
     '--lambda',

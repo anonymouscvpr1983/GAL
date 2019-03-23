@@ -17,7 +17,6 @@ from utils.options import args
 from utils.preprocess import prune_resnet
 from model import resnet_56_sparse
 
-
 def main():
     start_epoch = 0
     best_prec1, best_prec5 = 0.0, 0.0
@@ -41,10 +40,13 @@ def main():
         
     if args.pruned:
         mask = checkpoint['mask']
+        pruned = sum([1 for m in mask if mask == 0])
+        print(f"Pruned / Total: {pruned} / {len(mask)}")
         model = resnet_56_sparse(has_mask = mask).to(args.gpus[0])
         model.load_state_dict(checkpoint['state_dict_s'])
     else:
         model = prune_resnet(args, checkpoint['state_dict_s'])
+
     test_prec1, test_prec5 = test(args, loader.loader_test, model, criterion, writer_test)
     print(f"Simply test after prune {test_prec1:.3f}")
     

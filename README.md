@@ -68,12 +68,10 @@ You can set `--pruned` to reuse the `pruned.pt`. If you want to initiate weights
 
 
 
-We also provide our baseline model below. Enjoy your training and testing!
-
-| Model                                                        | FLOPs.  | #Param. | Top-1 Err. |
-| ------------------------------------------------------------ | ------- | ------- | ---------- |
-| [Baseline](https://drive.google.com/open?id=1XHNxyFklGjvzNpTjzlkjpKc61-LLjt5T) | 125.49M | 0.85M   | 6.74%      |
+We also provide our [baseline](https://drive.google.com/open?id=1XHNxyFklGjvzNpTjzlkjpKc61-LLjt5T) model. Enjoy your training and testing!
 
 
 
+## Tips
 
+If you find any problems, please feel free to contact to the authors (shaohuilin007@gmail.com or Im.cqyan@gmail.com).

@@ -70,6 +70,7 @@ def main():
         print('=> Resuming from ckpt {}'.format(resume))
         ckpt = torch.load(resume, map_location=torch.device(f"cuda:{args.gpus[0]}"))
         best_prec1 = ckpt['best_prec1']
+        start_epoch = ckpt['epoch']
         model_s.load_state_dict(ckpt['state_dict_s'])
         model_d.load_state_dict(ckpt['state_dict_d'])
         optimizer_d.load_state_dict(ckpt['optimizer_d'])
@@ -78,7 +79,7 @@ def main():
         scheduler_d.load_state_dict(ckpt['scheduler_d'])
         scheduler_s.load_state_dict(ckpt['scheduler_s'])
         scheduler_m.load_state_dict(ckpt['scheduler_m'])
-        print('=> Continue from epoch {}...'.format(ckpt['epoch']))
+        print('=> Continue from epoch {}...'.format(start_epoch))
 
     optimizers = [optimizer_d, optimizer_s, optimizer_m]
     schedulers = [scheduler_d, scheduler_s, scheduler_m]
